@@ -1,0 +1,98 @@
+--- 
+components: 
+  schemas: 
+    Person: 
+      description: |
+        Information on a person.
+    
+        #### List of properties
+        ---
+      properties: 
+        additionalName: 
+          description: "An additional name for a Person, can be used for a middle name."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/additionalName"
+            uri-prefix: "https://schema.org/"
+        address:
+          description: "Physical address of the item."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/address"
+            uri-prefix: "https://schema.org/"
+        email: 
+          description: "Email address."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/email"
+            uri-prefix: "https://schema.org/" 
+        identifier: 
+          description: |
+              The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/identifier"
+            uri-prefix: "https://schema.org/"
+        jobTitle: 
+          description: "The job title of the person (for example, Financial Manager)."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/jobTitle"
+            uri-prefix: "https://schema.org/"
+        name: 
+          description: "The name of the Person."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/name"
+            uri-prefix: "https://schema.org/"
+        performerIn: 
+          description: "Event that this person is a performer or participant in."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/performerIn"
+            uri-prefix: "https://schema.org/"
+        telephone: 
+          description: "The telephone number."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/telephone"
+            uri-prefix: "https://schema.org/"
+        workLocation: 
+          description: "A contact location for a person's place of work."
+          type: string
+          x-ngsi: 
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://schema.org/workLocation"
+            uri-prefix: "https://schema.org/"
+      type: object
+      x-ngsi: 
+        uri: "https://schema.org/Person"
+        uri-prefix: "https://schema.org/"
+openapi: 3.0.0
+info:
+  version: 0.0.0
+  title: Markdown
+    
+paths:
+  /:
+    get:
+      responses:
+        200:
+          description: OK
