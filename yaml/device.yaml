@@ -1,9 +1,9 @@
 --- 
 components: 
   schemas: 
-    Building: 
+    Device: 
       description: |
-          This entity contains a description of a Building. 
+          This entity contains a description of a Device. 
       properties: 
         address:
           description: "Physical address of the item."
@@ -13,50 +13,39 @@ components:
             type: Property
             uri: "https://schema.org/address"
             uri-prefix: "https://schema.org/"
-        areaServed:
+        category:
+          description: 'Category of the device. Enum:actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'
+          x-ngsi:
+            model: "https://schema.org/Text"
+            type: Property
+            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/category"
+            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
+        controlledAsset:
           description: 'The geographic area where a service or offered item is provided.'
           x-ngsi:
             model: "https://schema.org/Text"
             type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/areaServed"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
-        category:
-          description: 'Category of the building.'
+            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/controlledAsset"
+            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
+        controlledProperty:
+          description: 'The geographic area where a service or offered item is provided.'
           x-ngsi:
             model: "https://schema.org/Text"
             type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/category"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
+            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/controlledProperty"
+            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
         dateModified:
-          description: 'Timestamp of the last modification of the entity.'
-          format: date-time
-          type: string
+          description: 'The geographic area where a service or offered item is provided.'
           x-ngsi:
             model: "https://schema.org/Text"
             type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/dateModified"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
+            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/dateModified"
+            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
         description:
           description: 'A description of this item'
           type: string
           x-ngsi:
             type: Property
-        device:
-          description: "'An apparatus (hardware + software + firmware) intended to accomplish a particular task (sensing the environment, actuating, etc.)."
-          type: string
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
-        event: 
-          description: "Upcoming or past event associated with this place, organization, or action."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/event"
-            uri-prefix: "https://schema.org/"
         identifier: 
           description: |
               The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.
@@ -82,30 +71,23 @@ components:
             type: Property
             uri: "https://schema.org/name"
             uri-prefix: "https://schema.org/"
-        person:
-          description: "The person working/attending the building."
-          type: string
+        value:
+          description: "The value of the quantitative value or property value node."
+          type: integer
           x-ngsi: 
             model: "https://schema.org/Text"
             type: Property
-            uri: "https://github.com/brucelit/brucelit.github.io/blob/main/yaml/person.yaml"
-        yearBuilt: 
-          description: "The year an Accommodation was constructed."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/yearBuilt"
+            uri: "https://schema.org/value"
             uri-prefix: "https://schema.org/"
       required: 
-        - address
         - category
+        - controlledProperty
       type: object
       
 openapi: 3.0.0
 info:
   version: 0.0.0
-  title: Building
+  title: Device
     
 paths:
   /:
