@@ -1,111 +1,28 @@
---- 
-components: 
+components:
   schemas: 
-    Building: 
-      description: |
-          This entity contains a description of a Building. 
+    Building:
+      allOf: 
+        - 
+          $ref: "https://smart-data-models.github.io/dataModel.Building/Building/model.yaml#/Building"
       properties: 
-        address:
-          description: "Physical address of the item."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/address"
-            uri-prefix: "https://schema.org/"
-        areaServed:
-          description: 'The geographic area where a service or offered item is provided.'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/areaServed"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
-        category:
-          description: 'Category of the building.'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/category"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
-        dateModified:
-          description: 'Timestamp of the last modification of the entity.'
-          format: date-time
-          type: string
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building/model.yaml#/dateModified"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Building/blob/master/Building"
-        description:
-          description: 'A description of this item'
-          type: string
-          x-ngsi:
-            type: Property
         device:
-          description: "'An apparatus (hardware + software + firmware) intended to accomplish a particular task (sensing the environment, actuating, etc.)."
-          type: string
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
+          $ref: "https://github.com/brucelit/brucelit.github.io/blob/main/yaml/device.yaml"
         event: 
           description: "Upcoming or past event associated with this place, organization, or action."
           type: string
           x-ngsi: 
             model: "https://schema.org/Text"
-            type: Property
+            type: Relationship
             uri: "https://schema.org/event"
             uri-prefix: "https://schema.org/"
-        identifier: 
-          description: |
-              The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/identifier"
-            uri-prefix: "https://schema.org/"
-        location: 
-          description: "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/location"
-            uri-prefix: "https://schema.org/"
-        name: 
-          description: "The name of the Building."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/name"
-            uri-prefix: "https://schema.org/"
-        person:
-          description: "The person working/attending the building."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/brucelit/brucelit.github.io/blob/main/yaml/person.yaml"
-        yearBuilt: 
-          description: "The year an Accommodation was constructed."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/yearBuilt"
-            uri-prefix: "https://schema.org/"
-      required: 
-        - address
-        - category
-      type: object
-      
-openapi: 3.0.0
+        person: 
+          $ref: "https://github.com/brucelit/brucelit.github.io/blob/main/yaml/person.yaml"
 info:
-  version: 0.0.0
+  description:  |
+    Information on a given Building
   title: Building
+  version: "1.0.0"
+openapi: "3.0.0"
     
 paths:
   /:

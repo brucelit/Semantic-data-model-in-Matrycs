@@ -1,93 +1,13 @@
---- 
-components: 
+components:
   schemas: 
-    Device: 
-      description: |
-          This entity contains a description of a Device. 
-      properties: 
-        address:
-          description: "Physical address of the item."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/address"
-            uri-prefix: "https://schema.org/"
-        category:
-          description: 'Category of the device. Enum:actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/category"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
-        controlledAsset:
-          description: 'The geographic area where a service or offered item is provided.'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/controlledAsset"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
-        controlledProperty:
-          description: 'The geographic area where a service or offered item is provided.'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/controlledProperty"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
-        dateModified:
-          description: 'The geographic area where a service or offered item is provided.'
-          x-ngsi:
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/model.yaml#/dateModified"
-            uri-prefix: "https://github.com/smart-data-models/dataModel.Device/blob/master/Device"
-        description:
-          description: 'A description of this item'
-          type: string
-          x-ngsi:
-            type: Property
-        identifier: 
-          description: |
-              The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/identifier"
-            uri-prefix: "https://schema.org/"
-        location: 
-          description: "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/location"
-            uri-prefix: "https://schema.org/"
-        name: 
-          description: "The name of the Building."
-          type: string
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/name"
-            uri-prefix: "https://schema.org/"
-        value:
-          description: "The value of the quantitative value or property value node."
-          type: integer
-          x-ngsi: 
-            model: "https://schema.org/Text"
-            type: Property
-            uri: "https://schema.org/value"
-            uri-prefix: "https://schema.org/"
-      required: 
-        - category
-        - controlledProperty
-      type: object
-      
-openapi: 3.0.0
+    DeviceModel: 
+      $ref: "https://smart-data-models.github.io/dataModel.Device/DeviceModel/model.yaml#/DeviceModel"
 info:
-  version: 0.0.0
-  title: Device
+  description:  |
+    This entity captures the static properties of a Device. 
+  title: DeviceModel
+  version: "1.0.0"
+openapi: "3.0.0"
     
 paths:
   /:
